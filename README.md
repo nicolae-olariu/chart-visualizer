@@ -1,2 +1,3 @@
 chart-visualizer
 ================
+updated readme
