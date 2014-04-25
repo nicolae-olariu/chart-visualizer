@@ -5,21 +5,23 @@ angular
 	.directive('chartVisualizer', function () {
 		return {
 			scope: {
-				chartSelector: '@', 		// eg: chart/graph-chart
-				chartSelectorType: '@', 	// eg: ./#
-				chartDataSource: '=',		// data to be plotted
-				chartXAxisCssClass: '@',	// css class to style the X axis
-				chartYAxisCssClass: '@',	// css class to style the Y axis
-				chartXAxisTitle: '=',		// title for X axis
-				chartShowXAxisTitle: '@',	// show/hide title for X axis
-				chartYAxisTitle: '=',		// title for Y axis
-				chartShowYAxisTitle: '@',	// show/hide title for Y axis
-				chartType: '@',				// type of chart: line-chart/area-chart/bar-chart/pie-chart
-				chartXProperty: '=',		// property used to plot each point against x axis (a timestamp)
-				chartYProperty: '=',		// property used to plot each point against y axis (usually, a value)
-				chartMargins: '=', 			// chart paddings: top/right/bottom/left
-				chartHorizGrid: '@', 		// if set, chart will show horizontal grid
-				chartVertGrid: '@', 		// if set, chart will show vertical grid
+				chartSelector: '@', 			// eg: chart/graph-chart
+				chartSelectorType: '@', 		// eg: ./#
+				chartDataSource: '=',			// data to be plotted
+				chartXAxisCssClass: '@',		// css class to style the X axis
+				chartYAxisCssClass: '@',		// css class to style the Y axis
+				chartXAxisTitle: '=',			// title for X axis
+				chartShowXAxisTitle: '@',		// show/hide title for X axis
+				chartYAxisTitle: '=',			// title for Y axis
+				chartShowYAxisTitle: '@',		// show/hide title for Y axis
+				chartType: '@',					// type of chart: line-chart/area-chart/bar-chart/pie-chart
+				chartXProperty: '=',			// property used to plot each point against x axis (a timestamp)
+				chartYProperty: '=',			// property used to plot each point against y axis (usually, a value)
+				chartMargins: '=', 				// chart paddings: top/right/bottom/left
+				chartHorizGrid: '@', 			// if set, chart will show horizontal grid
+				chartVertGrid: '@', 			// if set, chart will show vertical grid
+				chartXAxisTitleCssClass: '=',	// default class: xAxisTitle
+				chartYAxisTitleCssClass: '=' 	// default class: yAxisTitle
 			},
 			templateUrl: '/views/chartVisualizer.html',
 			restrict: 'AE',
@@ -55,6 +57,16 @@ angular
 				var initialize = function() {
 						formatDataSource();
 						plotChart();
+					},
+					getRandomColor = function() {
+						var letters = '0123456789ABCDEF'.split(''),
+							color = '#';
+
+						for (var i = 0; i < 6; i++ ) {
+							color += letters[Math.floor(Math.random() * 16)];
+						}
+
+						return color;
 					},
 					plotChart = function() {
 						$(scope.chartSelectorType + scope.chartSelector).children().remove();
@@ -93,10 +105,12 @@ angular
 						x.domain(d3.extent(data, function(d) { return d[scope.chartXProperty]; }));
 						y.domain(d3.extent(data, function(d) { return d[scope.chartYProperty]; }));
 
+						// Show/hide horizontal grid.
 						if (displayHorizontalGrid) {
 							yAxis.tickSize(-width, 0, 0);
 						}
 
+						// Show/hide vertical grid.
 						if (displayVerticalGrid) {
 							xAxis.tickSize(-height, 0, 0);
 						}
@@ -113,12 +127,12 @@ angular
 						if (displayXAxisTitle) {
 							xAxisElement
 								.append('text')
-								//.attr('transform', 'rotate(-90)')
 								.attr('x', width / 2)
 								.attr('y', margin.bottom / 2)
 								.attr('dy', '.71em')
+								.attr('class', scope.chartXAxisTitleCssClass || 'xAxisTitle')
 								.style('text-anchor', 'middle')
-								.text(scope.chartYAxisTitle);
+								.text(scope.chartXAxisTitle);
 						}
 
 						// Adding oY title.
@@ -129,6 +143,7 @@ angular
 								.attr('x', -height / 2)
 								.attr('y', -margin.left / 2)
 								.attr('dy', '.71em')
+								.attr('class', scope.chartYAxisTitleCssClass || 'yAxisTitle')
 								.style('text-anchor', 'middle')
 								.text(scope.chartYAxisTitle);
 						}
@@ -136,7 +151,8 @@ angular
 						svg.append('path')
 							.datum(data)
 							.attr('class', 'line')
-							.attr('d', line);
+							.attr('d', line)
+							.attr('stroke', getRandomColor());
 					},
 					formatDataSource = function() {
 						scope.chartDataSource.forEach(function(d) {

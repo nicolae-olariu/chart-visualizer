@@ -1,36 +1,48 @@
+$mainColor: #444;
+$lineChartColor: orange;
+$lineChartStrokeWidth: 1px;
+$tickVertHorizOpacity: .2;
+
 .chart-container {
 	height: 500px;
 	width: 800px;
 
 	/*
-		Chart states:
+		Possible chart states:
 
 		line-chart
 		area-chart
 		bar-chart
 		pie-chart
-	 */
 
+	*/
+
+	/* 'line-chart' state */
 	&.line-chart {
 		.axis path,
 		.axis line {
 		  fill: none;
-		  stroke: #444;
+		  stroke: $mainColor;
 		  shape-rendering: crispEdges;
+		}
+
+		.xAxisTitle,
+		.yAxisTitle {
+			fill: $mainColor;
 		}
 
 		.line {
 		  fill: none;
-		  stroke: orange;
-		  stroke-width: 1.5px;
+		  // stroke: $lineChartColor;
+		  stroke-width: $lineChartStrokeWidth;
 		}
 
 		.tick {
-			fill: #444;
+			fill: $mainColor;
 
 			line {
-				opacity: .2;
-				stroke: #444;
+				opacity: $tickVertHorizOpacity;
+				stroke: $mainColor;
 			}
 		}
 	}
