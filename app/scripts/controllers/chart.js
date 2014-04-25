@@ -3,19 +3,30 @@
 angular
 	.module('chartVisualizerApp')
 	.controller('ChartCtrl', function ($scope) {
-		$scope.chartDataType = 'tsv';
-		$scope.chartDataPath = 'data/sample.tsv';
-		$scope.chartXProperty = 'date';
-		$scope.chartYProperty = 'close';
-		$scope.chartYAxisTitle = 'Profit';
-		$scope.chartXAxisTitle = 'Date';
-		$scope.chartMargins = { top: 20, right: 20, bottom: 50, left: 100 };
+		/*-------------------------------------------------------------------
+		 *
+		 * Properties
+		 *
+		 *-----------------------------------------------------------------*/
 
+		// Used just for testing purposes.
 		$scope.types = [
 			{ dataType:'csv', dataPath:'data/sample.csv', xProperty: 'time', yProperty: 'revenue', xAxisTitle: 'Time', yAxisTitle: 'Kilos' },
 		    { dataType:'tsv', dataPath:'data/sample.tsv', xProperty: 'date', yProperty: 'close', xAxisTitle: 'Date', yAxisTitle: 'Profit' },
 		    { dataType:'json', dataPath:'data/sample.json', xProperty: 'timestamp', yProperty: 'visits', xAxisTitle: 'Timestamp',  yAxisTitle: 'Visits' }
 		];
+
+		/*------------------------------------------------------------------
+		Defaults
+		------------------------------------------------------------------*/
+
+		$scope.chartDataType = $scope.types[0].dataType;
+		$scope.chartDataPath = $scope.types[0].dataPath;
+		$scope.chartXProperty = $scope.types[0].xProperty;
+		$scope.chartYProperty = $scope.types[0].yProperty;
+		$scope.chartYAxisTitle = $scope.types[0].yAxisTitle;
+		$scope.chartXAxisTitle = $scope.types[0].xAxisTitle;
+		$scope.chartMargins = { top: 20, right: 20, bottom: 50, left: 100 };
 
 		var loadData = function() {
 			switch ($scope.chartDataType) {
