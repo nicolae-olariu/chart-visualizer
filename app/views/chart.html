@@ -2,12 +2,14 @@
 	<h3>This area will be used to plot a chart using angular and d3. Yaaay!</h3>
 	<div chart-visualizer 	chart-selector="my-chart"
 							chart-selector-type="#"
-							chart-x-axis-title="Date"
-							chart-Y-axis-title="Revenue"
+							chart-data-source="data"
+							chart-x-axis-css-class="x axis"
+							chart-y-axis-css-class="y axis"
+							chart-Y-axis-title="chartYAxisTitle"
 							chart-type="line"
-							chart-data-type="tsv"
-							chart-data-path="data/sample.tsv"
-							chart-x-property="date"
-							chart-y-property="close">
+							chart-x-property="chartXProperty"
+							chart-y-property="chartYProperty">
 	</div>
+
+	<select ng-options="t.dataType for t in types" ng-model="m"></select>
 </div>
