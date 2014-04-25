@@ -53,7 +53,6 @@ angular
 										});
 
 										scope.data = data;
-
 										scope.$apply();
 									});
 								break;
@@ -65,7 +64,6 @@ angular
 										});
 
 										scope.data = data;
-
 										scope.$apply();
 									});
 								break;
@@ -77,7 +75,6 @@ angular
 										});
 
 										scope.data = data;
-
 										scope.$apply();
 									});
 								break;
