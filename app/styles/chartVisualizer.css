@@ -1,0 +1,23 @@
+.chart-container {
+	border: 2px solid #333;
+	border-radius: 10px;
+	height: 400px;
+	width: 600px;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+.line {
+  fill: none;
+  stroke: orange;
+  stroke-width: 1.5px;
+}
