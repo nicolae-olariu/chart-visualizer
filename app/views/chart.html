@@ -1,14 +1,21 @@
 <div>
 	<h3>This area will be used to plot a chart using angular and d3. Yaaay!</h3>
+	<br>
 	<div chart-visualizer 	chart-selector="my-chart"
 							chart-selector-type="#"
 							chart-data-source="data"
 							chart-x-axis-css-class="x axis"
 							chart-y-axis-css-class="y axis"
+							chart-X-axis-title="chartXAxisTitle"
+							chart-show-x-axis-title="true"
 							chart-Y-axis-title="chartYAxisTitle"
-							chart-type="line"
+							chart-show-y-axis-title="true"
+							chart-type="line-chart"
 							chart-x-property="chartXProperty"
-							chart-y-property="chartYProperty">
+							chart-y-property="chartYProperty"
+							chart-margins="chartMargins"
+							chart-horiz-grid="true"
+							chart-vert-grid="true">
 	</div>
 
 	<select ng-options="t.dataType for t in types" ng-model="m"></select>

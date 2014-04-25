@@ -1,0 +1,37 @@
+.chart-container {
+	height: 500px;
+	width: 800px;
+
+	/*
+		Chart states:
+
+		line-chart
+		area-chart
+		bar-chart
+		pie-chart
+	 */
+
+	&.line-chart {
+		.axis path,
+		.axis line {
+		  fill: none;
+		  stroke: #444;
+		  shape-rendering: crispEdges;
+		}
+
+		.line {
+		  fill: none;
+		  stroke: orange;
+		  stroke-width: 1.5px;
+		}
+
+		.tick {
+			fill: #444;
+
+			line {
+				opacity: .2;
+				stroke: #444;
+			}
+		}
+	}
+}
