@@ -2,7 +2,7 @@
 
 angular
 	.module('chartVisualizerApp')
-	.directive('chartVisualizer', function () {
+	.directive('chartVisualizer', function (Colors) {
 		return {
 			scope: {
 				chartSelector: '@', 			// eg: chart/graph-chart
@@ -56,19 +56,20 @@ angular
 
 				var initialize = function() {
 						formatDataSource();
-						plotChart();
-					},
-					getRandomColor = function() {
-						var letters = '0123456789ABCDEF'.split(''),
-							color = '#';
 
-						for (var i = 0; i < 6; i++ ) {
-							color += letters[Math.floor(Math.random() * 16)];
+						switch (scope.chartType) {
+							case 'line-chart':
+								plotLineChart();
+								break;
+							case 'area-chart':
+								break;
+							case 'bar-chart':
+								break;
+							case 'pie-chart':
+								break;
 						}
-
-						return color;
 					},
-					plotChart = function() {
+					plotLineChart = function() {
 						$(scope.chartSelectorType + scope.chartSelector).children().remove();
 
 						var margin = scope.chartMargins,
@@ -100,7 +101,8 @@ angular
 							displayHorizontalGrid = scope.chartHorizGrid && scope.chartHorizGrid === 'true',
 							displayVerticalGrid = scope.chartVertGrid && scope.chartVertGrid === 'true',
 							displayXAxisTitle = scope.chartXAxisTitle && scope.chartShowXAxisTitle && scope.chartShowXAxisTitle === 'true',
-							displayYAxisTitle = scope.chartYAxisTitle && scope.chartShowYAxisTitle && scope.chartShowYAxisTitle === 'true';
+							displayYAxisTitle = scope.chartYAxisTitle && scope.chartShowYAxisTitle && scope.chartShowYAxisTitle === 'true',
+							tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
 
 						x.domain(d3.extent(data, function(d) { return d[scope.chartXProperty]; }));
 						y.domain(d3.extent(data, function(d) { return d[scope.chartYProperty]; }));
@@ -152,7 +154,7 @@ angular
 							.datum(data)
 							.attr('class', 'line')
 							.attr('d', line)
-							.attr('stroke', getRandomColor());
+							.attr('stroke', Colors.getRandomColor());
 					},
 					formatDataSource = function() {
 						scope.chartDataSource.forEach(function(d) {
