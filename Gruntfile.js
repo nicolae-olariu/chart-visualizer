@@ -171,6 +171,7 @@ module.exports = function (grunt) {
         httpFontsPath: '/styles/fonts',
         relativeAssets: false,
         assetCacheBuster: false,
+        noLineComments: true,
         raw: 'Sass::Script::Number.precision = 10\n'
       },
       dist: {
@@ -180,7 +181,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          debugInfo: true
+          debugInfo: false
         }
       }
     },
