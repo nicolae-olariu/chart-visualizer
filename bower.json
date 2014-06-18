@@ -17,5 +17,8 @@
     "angular-mocks": "1.2.15",
     "angular-scenario": "1.2.15",
     "d3": "~3.4.6"
+  },
+  "resolutions": {
+    "d3": "~3.4.6"
   }
 }
