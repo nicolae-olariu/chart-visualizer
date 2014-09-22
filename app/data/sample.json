@@ -40,7 +40,8 @@
 					{
 						"timestamp": 1412118400000,
 						"visits": 508.34
-					}]
+					}],
+		"legend": "Visits"
 	},
 	{
 		"values": [
@@ -83,7 +84,8 @@
 					{
 						"timestamp": 1412114400000,
 						"visits": 608.34
-					}]
+					}],
+		"legend": "More Visits"
 	},
 	{
 		"values": [
@@ -126,6 +128,7 @@
 					{
 						"timestamp": 1412114400000,
 						"visits": 708.34
-					}]
+					}],
+		"legend": "More Visits 3"
 	}
 ]

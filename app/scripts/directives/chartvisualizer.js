@@ -275,7 +275,7 @@ angular
 											    .text('a simple tooltip');
 						}
 
-						var plotLine = function(index) {
+						var drawLine = function(index) {
 								svg.append('path')
 									.datum(data[index].values)
 									.attr('class', 'line')
@@ -336,10 +336,33 @@ angular
 									.attr('r', 5);
 
 								return tooltip.style('display', 'none');
+							},
+							drawLegend = function(index) {
+								console.log(height);
+
+								var legend = svg
+												.selectAll('legend')
+												.data(data.map(function(o) { return o.legend; }))
+												.enter()
+												.append('g')
+												.attr('transform', function(d, i) { return 'translate(' + i * 100 + ',' + (height + 30) + ')'; })
+
+						         legend.append('rect')
+										.attr('width', 18)
+										.attr('height', 18)
+										.style('fill', 'red');
+
+						         legend.append('text')
+										.attr('x', 30)
+										.attr('y', 10)
+										.attr('dy', '.35em')
+										.attr('text-anchor', 'left')
+										.text(function(d) {  return d; });
 							};
 
 						for (i = 0, ii = data.length; i < ii; i++) {
-							plotLine(i);
+							drawLine(i);
+							drawLegend(i);
 
 							if (scope.chartShowTooltips) {
 								svg.selectAll('circle')
