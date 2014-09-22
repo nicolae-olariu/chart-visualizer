@@ -30,8 +30,6 @@ angular
 		// Used just for testing purposes.
 		$scope.useThisTypeIndexAsDefault = 0;
 		$scope.types = [
-			{ dataType:'csv', dataPath:'data/sample.csv', xProperty: 'time', yProperty: 'revenue', xAxisTitle: 'Time', yAxisTitle: 'Kilos' },
-		    { dataType:'tsv', dataPath:'data/sample.tsv', xProperty: 'date', yProperty: 'close', xAxisTitle: 'Date', yAxisTitle: 'Profit' },
 		    { dataType:'json', dataPath:'data/sample.json', xProperty: 'timestamp', yProperty: 'visits', xAxisTitle: 'Timestamp',  yAxisTitle: 'Visits' }
 		];
 		$scope.type = $scope.types[$scope.useThisTypeIndexAsDefault];

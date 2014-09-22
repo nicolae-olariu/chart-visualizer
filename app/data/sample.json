@@ -1,506 +1,131 @@
 [
 	{
-		"timestamp": "1-May-12",
-		"visits": 582.13
-	},
-	{
-		"timestamp": "30-Apr-12",
-		"visits": 583.98
-	},
-	{
-		"timestamp": "27-Apr-12",
-		"visits": 603.00
-	},
-	{
-		"timestamp": "26-Apr-12",
-		"visits": 607.70
-	},
-	{
-		"timestamp": "25-Apr-12",
-		"visits": 610.00
-	},
-	{
-		"timestamp": "24-Apr-12",
-		"visits": 560.28
-	},
-	{
-		"timestamp": "23-Apr-12",
-		"visits": 571.70
-	},
-	{
-		"timestamp": "20-Apr-12",
-		"visits": 572.98
-	},
-	{
-		"timestamp": "19-Apr-12",
-		"visits": 587.44
-	},
-	{
-		"timestamp": "18-Apr-12",
-		"visits": 608.34
-	},
-	{
-		"timestamp": "17-Apr-12",
-		"visits": 609.70
-	},
-	{
-		"timestamp": "16-Apr-12",
-		"visits": 580.13
-	},
-	{
-		"timestamp": "13-Apr-12",
-		"visits": 605.23
-	},
-	{
-		"timestamp": "12-Apr-12",
-		"visits": 622.77
-	},
-	{
-		"timestamp": "11-Apr-12",
-		"visits": 626.20
-	},
-	{
-		"timestamp": "10-Apr-12",
-		"visits": 628.44
-	},
-	{
-		"timestamp": "9-Apr-12",
-		"visits": 636.23
-	},
-	{
-		"timestamp": "5-Apr-12",
-		"visits": 633.68
-	},
-	{
-		"timestamp": "4-Apr-12",
-		"visits": 624.31
-	},
-	{
-		"timestamp": "3-Apr-12",
-		"visits": 629.32
-	},
-	{
-		"timestamp": "2-Apr-12",
-		"visits": 618.63
-	},
-	{
-		"timestamp": "30-Mar-12",
-		"visits": 599.55
-	},
-	{
-		"timestamp": "29-Mar-12",
-		"visits": 609.86
-	},
-	{
-		"timestamp": "28-Mar-12",
-		"visits": 617.62
-	},
-	{
-		"timestamp": "27-Mar-12",
-		"visits": 614.48
-	},
-	{
-		"timestamp": "26-Mar-12",
-		"visits": 606.98
-	},
-	{
-		"timestamp": "23-Mar-12",
-		"visits": 596.05
-	},
-	{
-		"timestamp": "22-Mar-12",
-		"visits": 599.34
-	},
-	{
-		"timestamp": "21-Mar-12",
-		"visits": 602.50
-	},
-	{
-		"timestamp": "20-Mar-12",
-		"visits": 605.96
-	},
-	{
-		"timestamp": "19-Mar-12",
-		"visits": 601.10
-	},
-	{
-		"timestamp": "16-Mar-12",
-		"visits": 585.57
-	},
-	{
-		"timestamp": "15-Mar-12",
-		"visits": 585.56
-	},
-	{
-		"timestamp": "14-Mar-12",
-		"visits": 589.58
-	},
-	{
-		"timestamp": "13-Mar-12",
-		"visits": 568.10
-	},
-	{
-		"timestamp": "12-Mar-12",
-		"visits": 552.00
-	},
-	{
-		"timestamp": "9-Mar-12",
-		"visits": 545.17
-	},
-	{
-		"timestamp": "8-Mar-12",
-		"visits": 541.99
-	},
-	{
-		"timestamp": "7-Mar-12",
-		"visits": 530.69
-	},
-	{
-		"timestamp": "6-Mar-12",
-		"visits": 530.26
-	},
-	{
-		"timestamp": "5-Mar-12",
-		"visits": 533.16
-	},
-	{
-		"timestamp": "2-Mar-12",
-		"visits": 545.18
-	},
-	{
-		"timestamp": "1-Mar-12",
-		"visits": 544.47
-	},
-	{
-		"timestamp": "29-Feb-12",
-		"visits": 542.44
-	},
-	{
-		"timestamp": "28-Feb-12",
-		"visits": 535.41
-	},
-	{
-		"timestamp": "27-Feb-12",
-		"visits": 525.76
-	},
-	{
-		"timestamp": "24-Feb-12",
-		"visits": 522.41
-	},
-	{
-		"timestamp": "23-Feb-12",
-		"visits": 516.39
-	},
-	{
-		"timestamp": "22-Feb-12",
-		"visits": 513.04
-	},
-	{
-		"timestamp": "21-Feb-12",
-		"visits": 514.85
-	},
-	{
-		"timestamp": "17-Feb-12",
-		"visits": 502.12
-	},
-	{
-		"timestamp": "16-Feb-12",
-		"visits": 502.21
-	},
-	{
-		"timestamp": "15-Feb-12",
-		"visits": 497.67
-	},
-	{
-		"timestamp": "14-Feb-12",
-		"visits": 509.46
-	},
-	{
-		"timestamp": "13-Feb-12",
-		"visits": 502.60
-	},
-	{
-		"timestamp": "10-Feb-12",
-		"visits": 493.42
-	},
-	{
-		"timestamp": "9-Feb-12",
-		"visits": 493.17
-	},
-	{
-		"timestamp": "8-Feb-12",
-		"visits": 476.68
-	},
-	{
-		"timestamp": "7-Feb-12",
-		"visits": 468.83
-	},
-	{
-		"timestamp": "6-Feb-12",
-		"visits": 463.97
-	},
-	{
-		"timestamp": "3-Feb-12",
-		"visits": 459.68
-	},
-	{
-		"timestamp": "2-Feb-12",
-		"visits": 455.12
-	},
-	{
-		"timestamp": "1-Feb-12",
-		"visits": 456.19
-	},
-	{
-		"timestamp": "31-Jan-12",
-		"visits": 456.48
-	},
-	{
-		"timestamp": "30-Jan-12",
-		"visits": 453.01
-	},
-	{
-		"timestamp": "27-Jan-12",
-		"visits": 447.28
-	},
-	{
-		"timestamp": "26-Jan-12",
-		"visits": 444.63
-	},
-	{
-		"timestamp": "25-Jan-12",
-		"visits": 446.66
-	},
-	{
-		"timestamp": "24-Jan-12",
-		"visits": 420.41
-	},
-	{
-		"timestamp": "23-Jan-12",
-		"visits": 427.41
-	},
-	{
-		"timestamp": "20-Jan-12",
-		"visits": 420.30
-	},
-	{
-		"timestamp": "19-Jan-12",
-		"visits": 427.75
-	},
-	{
-		"timestamp": "18-Jan-12",
-		"visits": 429.11
-	},
-	{
-		"timestamp": "17-Jan-12",
-		"visits": 424.70
-	},
-	{
-		"timestamp": "13-Jan-12",
-		"visits": 419.81
-	},
-	{
-		"timestamp": "12-Jan-12",
-		"visits": 421.39
-	},
-	{
-		"timestamp": "11-Jan-12",
-		"visits": 422.55
-	},
-	{
-		"timestamp": "10-Jan-12",
-		"visits": 423.24
-	},
-	{
-		"timestamp": "9-Jan-12",
-		"visits": 421.73
-	},
-	{
-		"timestamp": "6-Jan-12",
-		"visits": 422.40
-	},
-	{
-		"timestamp": "5-Jan-12",
-		"visits": 418.03
-	},
-	{
-		"timestamp": "4-Jan-12",
-		"visits": 413.44
-	},
-	{
-		"timestamp": "3-Jan-12",
-		"visits": 411.23
-	},
-	{
-		"timestamp": "30-Dec-11",
-		"visits": 405.00
-	},
-	{
-		"timestamp": "29-Dec-11",
-		"visits": 405.12
-	},
-	{
-		"timestamp": "28-Dec-11",
-		"visits": 402.64
-	},
-	{
-		"timestamp": "27-Dec-11",
-		"visits": 406.53
-	},
-	{
-		"timestamp": "23-Dec-11",
-		"visits": 403.43
-	},
-	{
-		"timestamp": "22-Dec-11",
-		"visits": 398.55
-	},
-	{
-		"timestamp": "21-Dec-11",
-		"visits": 396.44
-	},
-	{
-		"timestamp": "20-Dec-11",
-		"visits": 395.95
-	},
-	{
-		"timestamp": "19-Dec-11",
-		"visits": 382.21
-	},
-	{
-		"timestamp": "16-Dec-11",
-		"visits": 381.02
-	},
-	{
-		"timestamp": "15-Dec-11",
-		"visits": 378.94
-	},
-	{
-		"timestamp": "14-Dec-11",
-		"visits": 380.19
-	},
-	{
-		"timestamp": "13-Dec-11",
-		"visits": 388.81
-	},
-	{
-		"timestamp": "12-Dec-11",
-		"visits": 391.84
-	},
-	{
-		"timestamp": "9-Dec-11",
-		"visits": 393.62
-	},
-	{
-		"timestamp": "8-Dec-11",
-		"visits": 390.66
-	},
-	{
-		"timestamp": "7-Dec-11",
-		"visits": 389.09
-	},
-	{
-		"timestamp": "6-Dec-11",
-		"visits": 390.95
-	},
-	{
-		"timestamp": "5-Dec-11",
-		"visits": 393.01
-	},
-	{
-		"timestamp": "2-Dec-11",
-		"visits": 389.70
-	},
-	{
-		"timestamp": "1-Dec-11",
-		"visits": 387.93
-	},
-	{
-		"timestamp": "30-Nov-11",
-		"visits": 382.20
-	},
-	{
-		"timestamp": "29-Nov-11",
-		"visits": 373.20
-	},
-	{
-		"timestamp": "28-Nov-11",
-		"visits": 376.12
-	},
-	{
-		"timestamp": "25-Nov-11",
-		"visits": 363.57
-	},
-	{
-		"timestamp": "23-Nov-11",
-		"visits": 366.99
-	},
-	{
-		"timestamp": "22-Nov-11",
-		"visits": 376.51
-	},
-	{
-		"timestamp": "21-Nov-11",
-		"visits": 369.01
-	},
-	{
-		"timestamp": "18-Nov-11",
-		"visits": 374.94
-	},
-	{
-		"timestamp": "17-Nov-11",
-		"visits": 377.41
-	},
-	{
-		"timestamp": "16-Nov-11",
-		"visits": 384.77
-	},
-	{
-		"timestamp": "15-Nov-11",
-		"visits": 388.83
-	},
-	{
-		"timestamp": "14-Nov-11",
-		"visits": 379.26
-	},
-	{
-		"timestamp": "11-Nov-11",
-		"visits": 384.62
-	},
-	{
-		"timestamp": "10-Nov-11",
-		"visits": 385.22
-	},
-	{
-		"timestamp": "9-Nov-11",
-		"visits": 395.28
-	},
-	{
-		"timestamp": "8-Nov-11",
-		"visits": 406.23
-	},
-	{
-		"timestamp": "7-Nov-11",
-		"visits": 399.73
-	},
-	{
-		"timestamp": "4-Nov-11",
-		"visits": 400.24
-	},
-	{
-		"timestamp": "3-Nov-11",
-		"visits": 403.07
-	},
-	{
-		"timestamp": "2-Nov-11",
-		"visits": 397.41
-	},
-	{
-		"timestamp": "1-Nov-11",
-		"visits": 396.51
-	},
-	{
-		"timestamp": "31-Oct-11",
-		"visits": 404.78
+		"values": [
+					{
+						"timestamp": 1388527200000,
+						"visits": 582.13
+					},
+					{
+						"timestamp": 1391205600000,
+						"visits": 383.98
+					},
+					{
+						"timestamp": 1393624800000,
+						"visits": 163.00
+					},
+					{
+						"timestamp": 1396303200000,
+						"visits": 227.70
+					},
+					{
+						"timestamp": 1398895200000,
+						"visits": 610.00
+					},
+					{
+						"timestamp": 1401573600000,
+						"visits": 490.28
+					},
+					{
+						"timestamp": 1404165600000,
+						"visits": 231.70
+					},
+					{
+						"timestamp": 1406844000000,
+						"visits": 142.98
+					},
+					{
+						"timestamp": 1409522400000,
+						"visits": 987.44
+					},
+					{
+						"timestamp": 1412114400000,
+						"visits": 508.34
+					}]
+	},
+	{
+		"values": [
+					{
+						"timestamp": 1388527200000,
+						"visits": 282.13
+					},
+					{
+						"timestamp": 1391205600000,
+						"visits": 583.98
+					},
+					{
+						"timestamp": 1393624800000,
+						"visits": 203.00
+					},
+					{
+						"timestamp": 1396303200000,
+						"visits": 307.70
+					},
+					{
+						"timestamp": 1398895200000,
+						"visits": 310.00
+					},
+					{
+						"timestamp": 1401573600000,
+						"visits": 360.28
+					},
+					{
+						"timestamp": 1404165600000,
+						"visits": 171.70
+					},
+					{
+						"timestamp": 1406844000000,
+						"visits": 272.98
+					},
+					{
+						"timestamp": 1409522400000,
+						"visits": 387.44
+					},
+					{
+						"timestamp": 1412114400000,
+						"visits": 608.34
+					}]
+	},
+	{
+		"values": [
+					{
+						"timestamp": 1388527200000,
+						"visits": 582.13
+					},
+					{
+						"timestamp": 1391205600000,
+						"visits": 583.98
+					},
+					{
+						"timestamp": 1393624800000,
+						"visits": 690.00
+					},
+					{
+						"timestamp": 1396303200000,
+						"visits": 507.70
+					},
+					{
+						"timestamp": 1398895200000,
+						"visits": 510.00
+					},
+					{
+						"timestamp": 1401573600000,
+						"visits": 360.28
+					},
+					{
+						"timestamp": 1404165600000,
+						"visits": 471.70
+					},
+					{
+						"timestamp": 1406844000000,
+						"visits": 272.98
+					},
+					{
+						"timestamp": 1409522400000,
+						"visits": 187.44
+					},
+					{
+						"timestamp": 1412114400000,
+						"visits": 708.34
+					}]
 	}
 ]
