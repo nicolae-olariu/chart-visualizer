@@ -15,9 +15,11 @@
 							chart-type="line-chart"
 							chart-x-property="'timestamp'"
 							chart-y-property="'visits'"
+							chart-rotate-y-axis-tick-with-degree="-65"
 							chart-margins="chartMargins"
 							chart-horiz-grid="true"
-							chart-vert-grid="true">
+							chart-vert-grid="true"
+							chart-show-tooltips="true">
 	</div>
 
 	<select class="chart-types" ng-options="t.dataType for t in types" ng-model="type"></select>

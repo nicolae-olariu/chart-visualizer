@@ -22,7 +22,9 @@ angular
 				chartVertGrid: '@', 			// if set, chart will show vertical grid
 				chartXAxisTitleCssClass: '=',	// default class: xAxisTitle
 				chartYAxisTitleCssClass: '=', 	// default class: yAxisTitle
-				formatCurrency: '='
+				formatCurrency: '=',
+				chartRotateYAxisTickWithDegree: '=', // default 0,
+				chartShowTooltips: '=' 			// by default, it doesn't show tooltips
 			},
 			templateUrl: '/views/chartVisualizer.html',
 			restrict: 'AE',
@@ -105,80 +107,79 @@ angular
 					          .text(msg);
 					    };
 
-					var yMaxValues = [],
-						yMinValues = [],
-						xMaxValues = [],
-						xMinValues = [];
+						var yMaxValues = [],
+							yMinValues = [],
+							xMaxValues = [],
+							xMinValues = [];
 
-					for (var i = 0, length = data.length; i < length; i++) {
-						if (data[i] && data[i].values) {
-							// Get maximum y values for each data set.
-							yMaxValues[yMaxValues.length] = d3.max(data[i].values, function(d) { return +d[scope.chartYProperty] || 0; });
+						for (var i = 0, length = data.length; i < length; i++) {
+							if (data[i] && data[i].values) {
+								// Get maximum y values for each data set.
+								yMaxValues[yMaxValues.length] = d3.max(data[i].values, function(d) { return +d[scope.chartYProperty] || 0; });
 
-							// Get minimum y values for each data set.
-							yMinValues[yMinValues.length] = d3.min(data[i].values, function(d) { return +d[scope.chartYProperty] || 0; });
+								// Get minimum y values for each data set.
+								yMinValues[yMinValues.length] = d3.min(data[i].values, function(d) { return +d[scope.chartYProperty] || 0; });
 
-							// Get maximum x values for each data set.
-							xMaxValues[xMaxValues.length] = d3.max(data[i].values, function(d) { return d[scope.chartXProperty]; });
+								// Get maximum x values for each data set.
+								xMaxValues[xMaxValues.length] = d3.max(data[i].values, function(d) { return d[scope.chartXProperty]; });
 
-							// Get minimum x values for each data set.
-							xMinValues[xMinValues.length] = d3.min(data[i].values, function(d) { return d[scope.chartXProperty]; });
+								// Get minimum x values for each data set.
+								xMinValues[xMinValues.length] = d3.min(data[i].values, function(d) { return d[scope.chartXProperty]; });
+							}
 						}
-					}
 
-					var xMin = d3.min(xMinValues),
-						xMax = d3.max(xMaxValues),
-						yMin = d3.min(yMinValues),
-						yMax = d3.max(yMaxValues);
+						var xMin = d3.min(xMinValues),
+							xMax = d3.max(xMaxValues),
+							yMin = d3.min(yMinValues),
+							yMax = d3.max(yMaxValues);
 
-					var initialLine = d3.svg.line()
-					    	.x(function(d) { return x(d[scope.chartXProperty]); })
-					    	.y(function(d) { return  y(yMin); }),
-						line = d3.svg.line()
-							    .x(function(d) { return x(d[scope.chartXProperty]); })
-							    .y(function(d) { return y(d[scope.chartYProperty]); });
+						var initialLine = d3.svg.line()
+						    	.x(function(d) { return x(d[scope.chartXProperty]); })
+						    	.y(function(d) { return  y(yMin); }),
+							line = d3.svg.line()
+								    .x(function(d) { return x(d[scope.chartXProperty]); })
+								    .y(function(d) { return y(d[scope.chartYProperty]); });
 
-					var dateFormats = {
-						day: '%H:%M',
-						week: '%a',
-						month: '%d',
-						year: '%b'
-					};
+						var dateFormats = {
+							day: '%H:%M',
+							week: '%a',
+							month: '%d',
+							year: '%b'
+						};
 
-					var gridSubdivision,
-						scaleType;
+						var gridSubdivision,
+							scaleType;
 
-					switch(scope.chartDataSource[0].period) {
-						case 'today' :
-							scaleType = d3.time.format(dateFormats.day);
-							gridSubdivision = 13;
-							break;
-						case 'week' :
-							scaleType = d3.time.format(dateFormats.week);
-							gridSubdivision = 8;
-							break;
-						case 'month' :
-							scaleType = d3.time.format(dateFormats.month);
-							gridSubdivision = 31;
-							break;
-						case 'year' :
-							scaleType = d3.time.format(dateFormats.year);
-							gridSubdivision = 13;
-							break;
-					}
+						switch(scope.chartDataSource[0].period) {
+							case 'today' :
+								scaleType = d3.time.format(dateFormats.day);
+								gridSubdivision = 13;
+								break;
+							case 'week' :
+								scaleType = d3.time.format(dateFormats.week);
+								gridSubdivision = 8;
+								break;
+							case 'month' :
+								scaleType = d3.time.format(dateFormats.month);
+								gridSubdivision = 31;
+								break;
+							case 'year' :
+								scaleType = d3.time.format(dateFormats.year);
+								gridSubdivision = 13;
+								break;
+						}
 
-					var // Prepare x scale.
-			        x = d3.time
-			              .scale()
-			              .domain([xMin, xMax]) // just for today
-			              .range([0, width]),
+						var // Prepare x scale.
+				        x = d3.time
+				              .scale()
+				              .domain([xMin, xMax]) // just for today
+				              .range([0, width]),
 
-
-			        // Prepare y scale.
-			        y = d3.scale
-			              .linear()
-			              .domain([0, yMax])
-			              .range([height, 0]),
+				        // Prepare y scale.
+				        y = d3.scale
+				              .linear()
+				              .domain([0, yMax])
+				              .range([height, 0]),
 
 						xAxis = d3.svg.axis()
 							    .scale(x)
@@ -187,6 +188,7 @@ angular
 							    //.ticks(gridSubdivision)
 							    .tickFormat(scaleType);
 
+						// When y axis max value is below 10, then we need to plot exactly yMax ticks
 						if(yMax <= 10) {
 							var yAxis = d3.svg.axis()
 							    .scale(y)
@@ -199,7 +201,6 @@ angular
 							    .orient('left')
 							    .tickPadding(15);
 						}
-
 
 						// Show/hide horizontal grid.
 						if (displayHorizontalGrid) {
@@ -215,13 +216,13 @@ angular
 											.attr('class', scope.chartXAxisCssClass)
 											.attr('transform', 'translate(0,' + height + ')')
 											.call(xAxis)
-											.selectAll("text")
-						            .style("text-anchor", "end")
-						            .attr("dx", "-.8em")
-						            .attr("dy", "-.4em")
-						            .attr("transform", function(d) {
-					                return "rotate(-65)"
-				                }),
+											.selectAll('text')
+									            .style('text-anchor', 'end')
+									            .attr('dx', '-.8em')
+									            .attr('dy', '-.4em')
+									            .attr('transform', function(d) {
+									                return 'rotate(' + (scope.chartRotateYAxisTickWithDegree || 0) + ')';
+								                }),
 							yAxisElement = svg.append('g')
 											.attr('class', scope.chartYAxisCssClass)
 											.call(yAxis);
@@ -252,18 +253,19 @@ angular
 								.text(scope.chartYAxisTitle);
 						}
 
-						var circles = [];
-
-						var tooltip = d3.select("body")
-								    .append("div")
-								    .style("position", "absolute")
-								    .style("z-index", "10")
-								    .style("display", "none")
-								    .style("background", "#fff")
-								    .style("border", '1px solid')
-								    .style("border-radius", '5px')
-								    .style("padding", '5px')
-								    .text("a simple tooltip");
+						if (scope.chartShowTooltips) {
+							var circles = [],
+								tooltip = d3.select('body')
+										    .append('div')
+											    .style('position', 'absolute')
+											    .style('z-index', '10')
+											    .style('display', 'none')
+											    .style('background', '#fff')
+											    .style('border', '1px solid')
+											    .style('border-radius', '5px')
+											    .style('padding', '5px')
+											    .text('a simple tooltip');
+						}
 
 						for(var i = 0, ii = data.length; i < ii; i++) {
 							(function(index) {
@@ -276,55 +278,61 @@ angular
 									.attr('d', line)
 									.attr('stroke', data[index].color || d3.scale.category20().range()[index])
 									.each('end', function() {
-										circles[index]
-											.transition()
-											.delay(100)
-											.attr('r', 5)
-											.style('opacity', 1)
-									})
+										if (scope.chartShowTooltips) {
+											circles[index]
+												.transition()
+												.delay(100)
+												.attr('r', 5)
+												.style('opacity', 1);
+										}
+									});
 
-									var circle = svg
-										.selectAll('dot')
-										.data(data[index].values)
-										.enter()
-										.append('circle')
-											.attr('data-value', function(d) { return d[scope.chartYProperty]; })
-											.attr('r', 0)
-											.attr('stroke', '#fff')
-											.attr('stroke-width', 2)
-											.attr('fill', data[index].color || d3.scale.category20().range()[index])
-											.attr('cx', function (d) { return x(d[scope.chartXProperty]) })
-											.attr('cy', function (d) { return y(d[scope.chartYProperty]) })
-											.style('opacity', 0)
+									if (scope.chartShowTooltips) {
+										var circle = svg
+											.selectAll('dot')
+											.data(data[index].values)
+											.enter()
+											.append('circle')
+												.attr('data-value', function(d) { return d[scope.chartYProperty]; })
+												.attr('r', 0)
+												.attr('stroke', '#fff')
+												.attr('stroke-width', 2)
+												.attr('fill', data[index].color || d3.scale.category20().range()[index])
+												.attr('cx', function (d) { return x(d[scope.chartXProperty]) })
+												.attr('cy', function (d) { return y(d[scope.chartYProperty]) })
+												.style('opacity', 0)
 
-									circles[circles.length] = circle;
+										circles[circles.length] = circle;
+									}
 								})(i);
 
-								svg.selectAll('circle')
-									.on("mouseover", function() {
+								if (scope.chartShowTooltips) {
+									svg.selectAll('circle')
+										.on('mouseover', function() {
+											var currCircle = d3.select(this);
+
+											currCircle
+												.transition()
+												.attr('r', 7);
+
+											tooltip
+												.style('border-color',  currCircle.attr('fill') )
+												.html(capitalize(scope.chartYProperty) + ': ' + formatDataValue( currCircle.attr('data-value') ) );
+
+											return tooltip.style('display', 'block');
+										})
+									.on('mousemove', function(){return tooltip.style('top',
+									    (d3.event.pageY-10)+'px').style('left',(d3.event.pageX+10)+'px');})
+									.on('mouseout', function(){
 										var currCircle = d3.select(this);
 
 										currCircle
 											.transition()
-											.attr('r', 7);
+											.attr('r', 5);
 
-										tooltip
-											.style("border-color",  currCircle.attr('fill') ) //currCircle.fill()
-											.html(capitalize(scope.chartYProperty) + ": " + formatDataValue( currCircle.attr('data-value') ) );
-
-										return tooltip.style("display", "block");
-									})
-								.on("mousemove", function(){return tooltip.style("top",
-								    (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");})
-								.on("mouseout", function(){
-									var currCircle = d3.select(this);
-
-									currCircle
-										.transition()
-										.attr('r', 5);
-
-									return tooltip.style("display", "none");
-								});
+										return tooltip.style('display', 'none');
+									});
+								}
 						}
 
 						function capitalize (string) {
@@ -332,7 +340,7 @@ angular
 						};
 
 						function formatDataValue(data) {
-							if(scope.chartYProperty === "amount") {
+							if(scope.chartYProperty === 'amount') {
 								return scope.formatCurrency(data, 2);
 							} else return data;
 						}
