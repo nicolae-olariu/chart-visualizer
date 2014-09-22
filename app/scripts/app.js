@@ -6,7 +6,7 @@ angular
 		'ngResource',
 		'ngSanitize',
 		'ngRoute'
-		])
+	])
 	.config(function ($routeProvider) {
 		$routeProvider
 			.when('/', {
