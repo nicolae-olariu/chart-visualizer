@@ -337,7 +337,7 @@ angular
 
 								return tooltip.style('display', 'none');
 							},
-							drawLegend = function(index) {
+							drawLegend = function() {
 								var legendGroup = svg.append('g'),
 									_width = width + margin.left + margin.right;
 
@@ -348,18 +348,18 @@ angular
 												.append('g')
 												.attr('transform', function(d, i) { return 'translate(' + i * 100 + ',' + (height + 25) + ')'; });
 
-						         legend.append('rect')
+								legend.append('rect')
 										.attr('width', 18)
 										.attr('height', 18)
-										.style('fill', function(d, i) { return d3.scale.category20().range()[i] });
+										.style('fill', function(d, i) { return d3.scale.category20().range()[i]; });
 
-						         legend.append('text')
+								legend.append('text')
 										.attr('x', 30)
 										.attr('y', 10)
 										.attr('dy', '.35em')
 										.text(function(d) {  return d; });
 
-								legendGroup.attr('transform', function(d, i) {
+								legendGroup.attr('transform', function() {
 									return 'translate(' + (_width / 2 - legendGroup[0][0].getBBox().width / 2 - scope.chartMargins.left) + ',' + 0 + ')';
 								});
 							};
