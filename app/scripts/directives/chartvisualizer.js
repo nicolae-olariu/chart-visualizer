@@ -338,31 +338,36 @@ angular
 								return tooltip.style('display', 'none');
 							},
 							drawLegend = function(index) {
-								console.log(height);
+								var legendGroup = svg.append('g'),
+									_width = width + margin.left + margin.right;
 
-								var legend = svg
+								var legend = legendGroup
 												.selectAll('legend')
 												.data(data.map(function(o) { return o.legend; }))
 												.enter()
 												.append('g')
-												.attr('transform', function(d, i) { return 'translate(' + i * 100 + ',' + (height + 30) + ')'; })
+												.attr('transform', function(d, i) { return 'translate(' + i * 100 + ',' + (height + 25) + ')'; });
 
 						         legend.append('rect')
 										.attr('width', 18)
 										.attr('height', 18)
-										.style('fill', 'red');
+										.style('fill', function(d, i) { return d3.scale.category20().range()[i] });
 
 						         legend.append('text')
 										.attr('x', 30)
 										.attr('y', 10)
 										.attr('dy', '.35em')
-										.attr('text-anchor', 'left')
 										.text(function(d) {  return d; });
+
+								legendGroup.attr('transform', function(d, i) {
+									return 'translate(' + (_width / 2 - legendGroup[0][0].getBBox().width / 2 - scope.chartMargins.left) + ',' + 0 + ')';
+								});
 							};
+
+						drawLegend();
 
 						for (i = 0, ii = data.length; i < ii; i++) {
 							drawLine(i);
-							drawLegend(i);
 
 							if (scope.chartShowTooltips) {
 								svg.selectAll('circle')
