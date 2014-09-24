@@ -65,9 +65,8 @@ angular
 
 						var margin = scope.chartMargins,
 							chart = d3.select(scope.chartSelectorType + scope.chartSelector),
-						    width = +chart.style('width').replace('px', '') - margin.left - margin.right,
+							width = +chart.style('width').replace('px', '') - margin.left - margin.right,
 						    height = +chart.style('height').replace('px', '') - margin.top - margin.bottom,
-
 							svg = d3.select(scope.chartSelectorType + scope.chartSelector)
 									.append('svg')
 								    .attr('width', width + margin.left + margin.right)
@@ -191,7 +190,7 @@ angular
 							xAxis = d3.svg.axis()
 								    .scale(x)
 								    .orient('bottom')
-								    .tickPadding(15),
+								    .tickPadding(25),
 								    //.ticks(gridSubdivision)
 								    //.tickFormat(scaleType)
 							yAxis;
@@ -346,17 +345,19 @@ angular
 												.data(data.map(function(o) { return o.legend; }))
 												.enter()
 												.append('g')
-												.attr('transform', function(d, i) { return 'translate(' + i * 100 + ',' + (height + 25) + ')'; });
+												.attr('transform', function(d, i) { return 'translate(' + i * 120 + ',' + (height + 30) + ')'; });
 
-								legend.append('rect')
-										.attr('width', 18)
-										.attr('height', 18)
+								legend.append('circle')
+										.attr('cx', 6)
+										.attr('cy', 6)
+										.attr('r', 5)
 										.style('fill', function(d, i) { return d3.scale.category20().range()[i]; });
 
 								legend.append('text')
-										.attr('x', 30)
-										.attr('y', 10)
+										.attr('x', 18)
+										.attr('y', 6)
 										.attr('dy', '.35em')
+										.attr('fill', '#333')
 										.text(function(d) {  return d; });
 
 								legendGroup.attr('transform', function() {
